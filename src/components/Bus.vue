@@ -1,9 +1,8 @@
 <template>
-  <div :class="{ 'bus-container-enabled': isBusEnabled }">
+  <div>
     <span> Bus </span>
-    <div v-if="isTransferingDataMemoryToRecord">
-      <div>Data: {{ data }}</div>
-      <span> Memory -> Record </span>
+    <div v-if="isMovingToIR" class="enabled">
+      <span> Moviendo al IR </span>
     </div>
   </div>
 </template>
@@ -21,6 +20,7 @@ export default Vue.extend({
     ...mapState("processor", [
       "data",
       "isBusEnabled",
+      "isMovingToIR",
       "isTransferingDataMemoryToRecord",
     ]),
     ...mapGetters("processor", ["getInstance"]),
@@ -30,7 +30,7 @@ export default Vue.extend({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.bus-container-enabled {
+.enabled {
   background-color: #6bbc97;
 }
 </style>

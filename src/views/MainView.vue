@@ -1,27 +1,14 @@
 <template>
   <div class="main-view">
     <v-form class="form">
-      <v-text-field
+      <v-textarea
         v-model="data"
         class="text-field"
         label="Data"
         outlined
-      ></v-text-field>
-      <v-text-field
-        v-model="input1"
-        class="text-field"
-        label="Entrada #1"
-        outlined
-      ></v-text-field>
-      <v-text-field
-        v-model="input2"
-        class="text-field"
-        label="Entrada #2"
-        outlined
-      ></v-text-field>
+        no-resize
+      ></v-textarea>
       <div class="options">
-        <v-btn small> Sumar </v-btn>
-        <v-btn small> Restar </v-btn>
         <v-btn small @click="transferData"> Memory To Record </v-btn>
       </div>
     </v-form>
@@ -35,6 +22,13 @@
       <div class="component">
         <ControlUnit />
       </div>
+      <div class="component memory-ram">
+        <MemoryRam />
+      </div>
+    </div>
+
+    <div class="component">
+      <Records />
     </div>
   </div>
 </template>
@@ -44,6 +38,8 @@ import Vue from "vue";
 import ControlUnit from "../components/ControlUnit.vue";
 import ALU from "../components/ALU.vue";
 import Bus from "../components/Bus.vue";
+import MemoryRam from "@/components/MemoryRam.vue";
+import Records from "../components/Records.vue";
 import { mapMutations } from "vuex";
 
 export default Vue.extend({
@@ -52,12 +48,12 @@ export default Vue.extend({
     ControlUnit,
     ALU,
     Bus,
+    MemoryRam,
+    Records,
   },
   data() {
     return {
       data: null,
-      input1: null,
-      input2: null,
     };
   },
   methods: {
@@ -86,6 +82,10 @@ export default Vue.extend({
 .component {
   border: 1px solid black;
   padding: 10px;
+}
+
+.memory-ram {
+  width: 300px;
 }
 
 .text-field {

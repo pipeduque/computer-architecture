@@ -1,7 +1,7 @@
 <template>
   <div class="alu">
     <h2>ALU</h2>
-    {{ operationCode }}
+    <img src="@/assets/logo.png" alt="" />
   </div>
 </template>
 
