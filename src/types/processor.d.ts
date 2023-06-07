@@ -1,8 +1,3 @@
-declare interface MemoryRecord {
-  recordType: string;
-  recordData: RecordData[];
-}
-
 declare interface RecordData {
   addressType: string;
   value: number;

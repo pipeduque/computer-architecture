@@ -1,9 +1,6 @@
 <template>
   <v-app id="app">
-    <nav>
-      <router-link to="/">Procesador</router-link> |
-      <router-link to="/about">Acerca de</router-link>
-    </nav>
+    <nav><router-link to="/">Procesador</router-link></nav>
     <router-view />
   </v-app>
 </template>

@@ -1,26 +1,28 @@
 <template>
   <div class="hello">
-    <h1>Records</h1>
+    <h1>Registros</h1>
     <div class="component records">
-      <span></span>
-      <h2>Banco de registros</h2>
-      <Record
-        class="component"
-        v-for="[recordType, recordData] in processorRecords"
-        :key="recordType"
-        :name="recordType"
-        :recordData="recordData"
-      />
-    </div>
-    <div class="component records">
-      <h2>Registros del procesador</h2>
-      <Record
-        class="component"
-        v-for="[recordType, recordData] in processorRecords"
-        :key="recordType"
-        :name="recordType"
-        :recordData="recordData"
-      />
+      <div class="records-group">
+        <h2>Banco</h2>
+        <Record
+          class="component record"
+          v-for="(data, recordType) in recordData"
+          :key="recordType"
+          :name="recordType"
+          :recordData="data"
+        />
+      </div>
+
+      <div class="records-group">
+        <h2>Procesador</h2>
+        <Record
+          class="component record"
+          v-for="(data, recordType) in processorRecords"
+          :key="recordType"
+          :name="recordType"
+          :recordData="data"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -48,17 +50,33 @@ export default Vue.extend({
 <style scoped>
 h1 {
   font-weight: normal;
+  color: #333;
 }
 
 h2 {
-  font-size: small;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #666;
 }
 
 .records {
   padding: 10px;
 }
 
+.records-group {
+  margin: 10px;
+}
+
 .component {
-  border: 1px solid black;
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.record {
+  margin-bottom: 10px;
 }
 </style>

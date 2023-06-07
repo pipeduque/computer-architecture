@@ -1,11 +1,10 @@
 <template>
   <div class="record">
-    <span>{{ name }}</span>
+    <span class="name">{{ name }}</span>
     <div class="component">
-      <div class="record-data" v-for="record in recordData" :key="record">
-        <div>{{ record }}</div>
+      <div class="record-data">
         <div class="divider"></div>
-        <div>{{ record }}</div>
+        <div class="value">{{ recordData.value }}</div>
       </div>
     </div>
   </div>
@@ -33,24 +32,38 @@ export default Vue.extend({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1 {
-  font-weight: normal;
-}
-
 .record {
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.component {
+  border: 1px solid #ddd;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.record-data {
+  display: flex;
+  align-items: center;
 }
 
 .divider {
-  border-right: 1px solid black;
+  border-right: 1px solid #bbb;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.record-data {
-  justify-content: center;
-  display: flex;
+.value {
+  flex-grow: 1;
+  color: #666;
 }
 </style>
